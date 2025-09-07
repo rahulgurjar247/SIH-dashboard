@@ -1,10 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { RootState } from '../index';
-
-const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000/api/v1';
+import { appConfig } from '../../lib/config';
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: backendUrl,
+  baseUrl: appConfig.backendUrl,
   credentials: 'include',
   prepareHeaders: (headers, { getState }) => {
     const token = (getState() as RootState).auth.token;
