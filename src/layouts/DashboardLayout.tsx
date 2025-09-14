@@ -177,7 +177,12 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
       </List>
     </Box>
   );
+  const [time,settime] = useState(new Date().toLocaleTimeString());
 
+  setTimeout(() => {
+    settime(new Date().toLocaleTimeString());
+    // console.log(time);
+  }, 1000);
   return (
     <Box sx={{ display: 'flex' }}>
       <AppBar
@@ -206,9 +211,12 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1, fontWeight: 700 }}>
+          <Typography className='flex gap-4' variant="h6" noWrap component="div" sx={{ flexGrow: 1, fontWeight: 700 }}>
             {menuItems.find(item => item.path === location.pathname)?.text || 'Dashboard'}
+            <div className='md:pl-4'>{time}</div>
           </Typography>
+
+          {/* <div>{time}</div> */}
           
           <IconButton color="inherit" sx={{ mr: 1 }}>
             <Badge badgeContent={notifications.filter(n => !n.read).length} color="error">
