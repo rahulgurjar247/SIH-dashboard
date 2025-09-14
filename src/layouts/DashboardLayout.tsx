@@ -181,7 +181,6 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
 
   setTimeout(() => {
     settime(new Date().toLocaleTimeString());
-    // console.log(time);
   }, 1000);
   return (
     <Box sx={{ display: 'flex' }}>
@@ -215,8 +214,6 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
             {menuItems.find(item => item.path === location.pathname)?.text || 'Dashboard'}
             <div className='md:pl-4'>{time}</div>
           </Typography>
-
-          {/* <div>{time}</div> */}
           
           <IconButton color="inherit" sx={{ mr: 1 }}>
             <Badge badgeContent={notifications.filter(n => !n.read).length} color="error">
